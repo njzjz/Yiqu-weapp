@@ -1,0 +1,26 @@
+<!--pages/user/user.wxml-->
+<view class="container">
+  <view class="userinfo">
+    <image bindtap="bindViewTap" class="userinfo-avatar" src="{{user.avatarUrl}}" background-size="cover"></image>
+    <text class="userinfo-nickname">{{user.nickName}}</text>
+  </view>
+    <view class="center" class="flex-wrap input-wrap" style="height: 46px;" wx:if="{{user.objectId!=current.objectId}}">
+      <button class="submit" style="color:orange;border:2px solid orange;width:80%;height:36px; line-height:36px;" plain="true" wx:if="{{!follow}}" bindtap="follow">关注</button>
+      <button class="submit" style="color:orange;border:2px solid orange;width:80%;height:36px; line-height:36px;" plain="true" wx:if="{{follow}}" bindtap="cancel">取消关注</button>
+    </view>
+  <view class="center navigator user" style="width:100%;line-height: 34px;">
+      <text wx:if="{{!user.emailVerified}}">邮箱未验证</text>
+      <text wx:if="{{user.emailVerified}}">邮箱已验证：{{user.email}}</text>
+  </view>
+  <view class="navigator user" style=" height: 100%;  line-height: 34px;width:100%;border:0px; text-align: center;   font-size:16px;">
+
+      <image wx:if="{{user.gender==1}}" style="width:50rpx;height:50rpx;" src="http://finding-1251553053.cossh.myqcloud.com/geren/male.png" />
+      <image wx:elif="{{user.gender==2}}" style="width:50rpx;height:50rpx;" src="http://finding-1251553053.cossh.myqcloud.com/geren/female.png" />
+      <text class="user-motto">个性签名：{{user.motto?user.motto:motto}}</text>
+  </view>
+  <view class="navigator user" style="height: 100%;line-height: 34px;">趣签：
+      <block wx:for="{{quqian}}" wx:for-item="quqian" wx:key="id">
+        <text wx:if="{{quqian.checked}}" style="background-image:url('{{quqian.image}}');  background-size:100% 100%; background-repeat:no-repeat;" decode="{{true}}" space="{{true}}">&nbsp;&nbsp;{{quqian.name}}&nbsp;&nbsp;</text>
+      </block>
+  </view>
+</view>

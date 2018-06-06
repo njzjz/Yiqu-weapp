@@ -1,0 +1,92 @@
+<!--pages/activity/activity.wxml-->
+<!--<view class="flex-wrap input-wrap" style="height: 46px;">
+      <text class="label">名称</text>
+      <text>{{activity.name}}</text>
+    </view>-->
+<view wx:if="{{activity.kind==1}}" class="center">
+  <navigator wx:if="{{activity.user.objectId}}" url="../chat/chat?username={{activity.user.objectId}}">
+    <image wx:if="{activity.user.avatarUrl}}" style="width: 400rpx; height: 400rpx; border-radius: 50%;background-color: #eeeeee;" src="{{activity.user.avatarUrl}}" mode="aspectFit"></image>
+  </navigator>
+</view>
+<view wx:else>
+  <image wx:if="{{activity.image}}" style="width: 100%; height: 400rpx; background-color: #eeeeee;" src="{{activity.image}}" mode="aspectFit"></image>
+</view>
+<view wx:if="{{done&&!activity.hidequ}}">
+  <view class="center" wx:if="{{activity.user.objectId!=currentUser.objectId}}" class="flex-wrap input-wrap" style="height: 46px;">
+    <view style="width:50%">
+      <button class="submit" style="color:orange;border:2px solid orange;width:80%;height:36px; line-height:36px;" plain="true" wx:if="{{!join}}" bindtap="join">我要趣</button>
+      <button class="submit" style="color:orange;border:2px solid orange;width:80%;height:36px; line-height:36px;" plain="true" wx:if="{{join}}" bindtap="cancel">取消</button>
+    </view>
+    <view style="width:50%">
+      <button class="submit" style="color:orange;border:2px solid orange;width:80%;height:36px; line-height:36px;" plain="true" wx:if="{{!will}}" bindtap="will">我想趣</button>
+      <button class="submit" style="color:orange;border:2px solid orange;width:80%;height:36px; line-height:36px;" plain="true" wx:if="{{will}}" bindtap="cancelwill">取消</button>
+    </view>
+  </view>
+  <button class="submit" type="warn" wx:else bindtap="deleteActivity">删除</button>
+</view>
+<view wx:if="{{count}}" class="flex-wrap input-wrap" style="height: 46px;width:100%;">
+  <navigator url="../list/list?list=user&id={{activity.objectId}}" style="width:100%;">
+    <text>已有{{count}}人报名参加 </text>
+  </navigator>
+</view>
+<view wx:if="{{activity.time}}" class="flex-wrap input-wrap">
+  <view class="flex-wrap name">
+    <image src="http://finding-1251553053.cossh.myqcloud.com/activity/time.png" style="width:35px;height:35px;"></image>
+    <text class="label">活动时间</text>
+  </view>
+  <view class="flex-wrap todo">
+    <text class="todo-text tappable">{{activity.time}}</text>
+  </view>
+</view>
+<view wx:if="{{activity.place}}" class="flex-wrap input-wrap">
+  <view class="flex-wrap name">
+    <image src="http://finding-1251553053.cossh.myqcloud.com/activity/place.png" style="width:35px;height:35px;"></image>
+    <text class="label">活动地点</text>
+  </view>
+  <view class="flex-wrap todo">
+    <text class="todo-text tappable">{{activity.place}}</text>
+  </view>
+</view>
+<view wx:if="{{activity.price}}" class="flex-wrap input-wrap">
+  <view class="flex-wrap name">
+    <image src="http://finding-1251553053.cossh.myqcloud.com/activity/price.png" style="width:35px;height:35px;"></image>
+    <text class="label">活动费用</text> </view>
+  <view class="flex-wrap todo">
+    <text class="todo-text tappable">{{activity.price}}</text>
+  </view>
+</view>
+<view wx:if="{{activity.join}}" class="flex-wrap input-wrap">
+  <view class="flex-wrap name">
+    <image src="http://finding-1251553053.cossh.myqcloud.com/activity/baoming.png" style="width:35px;height:35px;"></image>
+    <text class="label">报名方式</text>
+  </view>
+  <view class="flex-wrap todo">
+    <text class="todo-text tappable">{{activity.join}}</text>
+  </view>
+</view>
+<view wx:if="{{activity.information}}" class="flex-wrap input-wrap" style="flex-direction:column">
+  <view class="flex-wrap name">
+    <image src="http://finding-1251553053.cossh.myqcloud.com/activity/information.png" style="width:35px;height:35px;"></image>
+    <text class="label">活动详情</text>
+  </view>
+  <view class="flex-wrap todo">
+    <text class="todo-text tappable">{{activity.information}}</text>
+  </view>
+</view>
+<view wx:if="{{activity.user}}" class="flex-wrap input-wrap">
+  <view class="flex-wrap name">
+    <text class="label">发起人</text>
+  </view>
+  <view class="flex-wrap todo">
+    <text class="todo-text tappable">{{activity.user.nickName}}</text>
+  </view>
+</view>
+<view class="center" class="flex-wrap input-wrap" wx:if="{{activity.video&&!hidevideo}}">
+  <video src="{{activity.video}}" controls="{{true}}" bindended="videoEnd" style="width:750rpx;height:562.5rpx;" autoplay="{{true}}"></video>
+</view>
+<view class="center" class="flex-wrap input-wrap" style="height: 46px;margin-top:46px;" wx:if="{{activity.calendar}}">
+  <button class="submit" style="color:orange;border:2px dashed black;width:100px;height:36px; line-height:36px;" plain="true" bindtap="openCalendar" disabled="{{!(activity.videoend?videoEnd:true)||!timeoutCalendar}}">完成</button>
+</view>
+<image wx:if="{{activity.bottomimage}}" style="width: 100%; height: 100rpx;" src="{{activity.bottomimage}}" mode="aspectFit"></image>
+<import src="../../components/calendar/calendar.wxml" />
+<template is="calendar" data="{{ ...$wux.calendar.birthday }}" />

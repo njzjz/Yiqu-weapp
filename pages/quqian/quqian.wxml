@@ -1,0 +1,22 @@
+<!--pages/quqian/quqian.wxml-->
+<view class="form-wrap">
+  <checkbox-group bindchange="checkboxChange">
+
+    <block wx:for="{{type}}" wx:for-item="type" wx:key="id">
+      <view class="flex-wrap input-wrap">
+        <text class="label">{{type.name}}</text>
+        <view class="flex-wrap" style="flex-wrap:wrap;">
+          <block wx:for="{{type.quqian}}" wx:for-item="typequqian" wx:key="id">
+            <block wx:for="{{quqian}}" wx:for-item="quqian" wx:key="id">
+              <view wx:if="{{quqian.id==typequqian}}">
+                <checkbox value="{{quqian.id}}" checked="{{quqian.checked}}" />
+                <text>{{quqian.name}}</text>
+              </view>
+            </block>
+          </block>
+        </view>
+      </view>
+    </block>
+  </checkbox-group>
+    <button class="submit" type="primary" bindtap="save">确定</button>
+</view>

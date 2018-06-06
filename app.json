@@ -1,0 +1,52 @@
+{
+  "pages": [
+    "pages/guangchang/guangchang",
+    "pages/list/list",
+    "pages/index/index",
+    "pages/activity/activity",
+    "pages/shetuan/shetuan",
+    "pages/xiaoxi/xiaoxi",
+    "pages/chat/chat",
+    "pages/sign/sign",
+    "pages/quqian/quqian",
+    "pages/user/user",
+    "pages/password/password"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "一趣",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/guangchang/guangchang",
+        "text": "广场",
+        "iconPath": "images/guangchang2.png",
+        "selectedIconPath": "images/guangchang.png"
+      },
+      {
+        "pagePath": "pages/shetuan/shetuan",
+        "text": "社团",
+        "iconPath": "images/shetuan2.png",
+        "selectedIconPath": "images/shetuan.png"
+      },
+      {
+        "pagePath": "pages/xiaoxi/xiaoxi",
+        "text": "消息",
+        "iconPath": "images/xiaoxi2.png",
+        "selectedIconPath": "images/xiaoxi.png"
+      },
+      {
+        "pagePath": "pages/index/index",
+        "text": "个人",
+        "iconPath": "images/geren2.png",
+        "selectedIconPath": "images/geren.png"
+      }
+    ],
+    "backgroundColor": "#FFA500",
+    "color": "#FFFAF0",
+    "selectedColor": "#8B2323"
+  }
+}

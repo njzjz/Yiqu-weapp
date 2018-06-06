@@ -1,0 +1,48 @@
+<!--pages/guangchang/guangchang.wxml-->
+<view class='center' style='flex-direction:row;align-items:center;height:30px;margin-left:82.5rpx;margin-right:56.25rpx;'>
+  <view style="width: 540rpx;">
+    <image style=" height: 32px; width:100%;" src="http://finding-1251553053.cossh.myqcloud.com/guangchang/input.png" />
+    <input style="margin-top: -32px;margin-left:5px;width: 100%;" placeholder="请输入活动名/兴趣标签" value="{{input}}" bindinput="update" data-name="input" id="input" />
+  </view>
+  <navigator url="../list/list?list=search&input={{input}}">
+    <image style="width: 25px; height: 25px;margin-left:5px;" src="http://finding-1251553053.cossh.myqcloud.com/guangchang/search.png" lazy-load="{{true}}" />
+  </navigator>
+</view>
+<!--<view style="margin-top:10px;background-image:url('http://finding-1251553053.cossh.myqcloud.com/guangchang/bar.png');  background-size:100% 100%; background-repeat:no-repeat;width:350rpx;height:60rpx">
+  <text style="margin-left:5px;">主题分类</text>
+</view>-->
+<view class="center" style='flex-direction:row;align-items:center;margin-top:30rpx;margin-left:32.8125rpx;margin-right:32.8125rpx;'>
+  <block wx:for="{{type}}" wx:for-item="item" wx:key="objectId">
+    <view style="width:20%">
+      <navigator url="../list/list?list=type&type={{item.id}}">
+        <view class="center">
+          <image style="width: 90rpx; height: 90rpx; background-color: #eeeeee;" src="{{item.image}}"></image>
+        </view>
+        <text class="center" style="font-size:14px;">{{item.name}}</text>
+      </navigator>
+    </view>
+  </block>
+</view>
+<image style="width:750rpx; margin-top:90rpx;" src="http://finding-1251553053.cossh.myqcloud.com/gc/orange%20ground.png" mode="widthFix" />
+
+<view class="announcement" style='align-items:center;margin-top:-800rpx;margin-left:56.25rpx;margin-right:56.25rpx;'>
+  <swiper class="swiper_container" autoplay="true" circular="true" interval="3000" indicator-dots="true" indicator-color="#FFFAF0" indicator-active-color="#FFA500" style="height:1100rpx;">
+    <block wx:for="{{banner}}" wx:for-item="item" wx:key="objectId">
+      <navigator url="{{item.url}}">
+        <swiper-item>
+          <view class="swiper_item" style="font-size:14px;">
+            <image style="width: 100%; ;" mode="widthFix" src="{{item.image}}" lazy-load="{{true}}"></image>
+            <text style="font-size:15px;">{{item.title}}</text>
+            <view style="float: right;" wx:if="{{item.rank}}">
+              <block wx:for="{{[1,2,3,4,5]}}" wx:for-item="i" wx:key="objectId">
+                <image src="http://finding-1251553053.cossh.myqcloud.com/gc/star{{i>item.rank?2:1}}.png" style="width:27rpx;height:27rpx;" lazy-load="{{true}}"/>
+              </block>
+            </view>
+            <rich-text nodes="<br>{{item.text}}" indtap="tap"></rich-text>
+
+          </view>
+        </swiper-item>
+      </navigator>
+    </block>
+  </swiper>
+</view>

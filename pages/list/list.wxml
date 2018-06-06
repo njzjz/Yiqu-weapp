@@ -1,0 +1,42 @@
+<!--pages/list/list.wxml-->
+<view class="todo-list">
+  <block wx:for="{{todos}}" wx:for-item="todo" wx:key="objectId">
+    <navigator wx:if="{{isUser?true:(pointer?todo.activity.name:todo.name)}}" url="{{isUser?('../user/user?id=' + (followee?todo.objectId:todo.user.objectId)):('../activity/activity?id=' + (pointer?todo.activity.objectId:todo.objectId))}}">
+      <view class="flex-wrap todo">
+        <view style="margin-top:50rpx;">
+          <image style="width:{{(isUser?false:(pointer?todo.activity.kind:todo.kind)==3)?'180rpx':'120rpx'}};height:{{(isUser?false:(pointer?todo.activity.kind:todo.kind)==3)?'240rpx':'120rpx'}};{{(isUser?true:(pointer?todo.activity.kind:todo.kind)==1)?'border-radius: 50%;':''}}"
+            src="{{(isUser?true:(pointer?todo.activity.kind:todo.kind)==1)?(pointer?todo.activity.user.avatarUrl:(followee?todo.avatarUrl:todo.user.avatarUrl)):(((pointer?todo.activity.kind:todo.kind)==2)?(pointer?todo.activity.logo:todo.logo):(pointer?todo.activity.image:todo.image))}}"
+            lazy-load="{{true}}" />
+        </view>
+        <view style="vertical-align:top;margin-left:5px;">
+          <text wx:if="{{isUser}}" data-id="{{followee?todo.objectId:todo.user.objectId}}" class="todo-text tappable">
+          {{followee?todo.nickName:todo.user.nickName}}
+          </text>
+          <text wx:elif="{{(pointer?todo.activity.kind:todo.kind)==1}}" data-id="{{pointer?todo.activity.objectId:todo.objectId}}" class="todo-text tappable">
+      活动：{{pointer?todo.activity.name:todo.name}}
+      时间：{{pointer?todo.activity.time:todo.time}}
+      详情：{{pointer?todo.activity.information:todo.information}}
+    </text>
+          <text wx:elif="{{(pointer?todo.activity.kind:todo.kind)==2}}" data-id="{{pointer?todo.activity.objectId:todo.objectId}}" class="todo-text tappable">
+      社团：{{pointer?todo.activity.club:todo.club}}
+      内容：{{pointer?todo.activity.name:todo.name}}
+      </text>
+          <view wx:elif="{{(pointer?todo.activity.kind:todo.kind)==3}}">
+            <block wx:for="{{quqian}}" wx:for-item="quqian" wx:key="id">
+              <block wx:for="{{pointer?todo.activity.quqian:todo.quqian}}" wx:for-item="todoquqian" wx:key="objectId">
+                <text wx:if="{{todoquqian==quqian.id}}" decode="{{true}}" space="{{true}}" style="background-image:url('{{quqian.image}}');  background-size:100% 100%; background-repeat:no-repeat;">&nbsp;&nbsp;{{quqian.name}}&nbsp;&nbsp;</text>
+              </block>
+            </block>
+            <text class="todo-text tappable">
+      <text style="font-weight:bold;">\n{{pointer?todo.activity.name:todo.name}}</text>\n时间：{{pointer?todo.activity.time:todo.time}}\n地点：{{pointer?todo.activity.place:todo.place}}
+            </text>
+          </view>
+        </view>
+        <view style="right:20px;" wx:if="{{!isUser}}">
+          <image style="width:120rpx;height:50rpx;" wx:if="{{(pointer?todo.activity.school:todo.school)==1}}" src="http://finding-1251553053.cossh.myqcloud.com/shetuan/ecnu.png" />
+          <image style="width:120rpx;height:50rpx;" wx:elif="{{(pointer?todo.activity.school:todo.school)==2}}" src="http://finding-1251553053.cossh.myqcloud.com/shetuan/sjtu.png" />
+        </view>
+      </view>
+    </navigator>
+  </block>
+</view>

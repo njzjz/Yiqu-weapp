@@ -1,0 +1,43 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="userinfo">
+    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+    <block wx:else>
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </block>
+  </view>
+  <view class="center">
+    <navigator url="../sign/sign" class="navigator user" style="width:100%;line-height: 34px;">
+      <text wx:if="{{!user.emailVerified}}">邮箱未验证</text>
+      <text wx:if="{{user.emailVerified}}">邮箱已验证：{{user.email}}</text>
+    </navigator>
+  </view>
+  <view class="navigator user" style=" height: 100%;  line-height: 34px;">
+    <button type="default-light" plain="{{true}}" session-from="weapp" style="width:100%;border:0px; text-align: center;   font-size:16px;" bindtap="prompt">
+      <image wx:if="{{userInfo.gender==1}}" style="width:50rpx;height:50rpx;" src="http://finding-1251553053.cossh.myqcloud.com/geren/male.png" />
+      <image wx:elif="{{userInfo.gender==2}}" style="width:50rpx;height:50rpx;" src="http://finding-1251553053.cossh.myqcloud.com/geren/female.png" />
+      <text class="user-motto">个性签名：{{user.motto?user.motto:motto}}</text>
+    </button>
+  </view>
+  <view>
+    <navigator url="../quqian/quqian" class="navigator user" style="height: 100%;line-height: 34px;">趣签：
+      <block wx:for="{{quqian}}" wx:for-item="quqian" wx:key="id">
+        <text wx:if="{{quqian.checked}}" style="background-image:url('{{quqian.image}}');  background-size:100% 100%; background-repeat:no-repeat;" decode="{{true}}" space="{{true}}">&nbsp;&nbsp;{{quqian.name}}&nbsp;&nbsp;</text>
+      </block>
+    </navigator>
+    <navigator url="../list/list?list=join" class="navigator user">我要趣</navigator>
+    <navigator url="../list/list?list=will" class="navigator user">我想趣</navigator>
+    <navigator url="../list/list?list=my" class="navigator user">我的活动</navigator>
+    <navigator url="../list/list" class="navigator user">活动列表</navigator>
+    <navigator url="../list/list?list=followee" class="navigator user">关注用户</navigator>
+    <view class="navigator user">
+      <button open-type="contact" type="default-light" plain="{{true}}" session-from="weapp" style="width:100%;border:0px; text-align: center;  height: 68px;  line-height: 68px;  font-size:16px;">我要反馈</button>
+    </view>
+    <navigator url="../password/password" class="navigator user">修改密码</navigator>
+  </view>
+</view>
+
+<import src="../../components/dialog/dialog.wxml" />
+
+<template is="dialog" data="{{ ...$wux.dialog }}" />

@@ -1,0 +1,66 @@
+{
+	"description": "项目配置文件。",
+	"setting": {
+		"urlCheck": true,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true
+	},
+	"compileType": "miniprogram",
+	"libVersion": "1.9.1",
+	"appid": "wxcaa64284c860cabb",
+	"projectname": "FINDING",
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"list": []
+		},
+		"miniprogram": {
+			"current": -1,
+			"list": [
+				{
+					"id": -1,
+					"name": "quqian",
+					"pathName": "pages/quqian/quqian",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "index",
+					"pathName": "pages/index/index",
+					"query": ""
+				},
+				{
+					"id": 2,
+					"name": "user",
+					"pathName": "pages/user/user",
+					"query": "id=5a23f86a5f7cff004fe6214a"
+				},
+				{
+					"id": -1,
+					"name": "xiaoxi",
+					"pathName": "pages/xiaoxi/xiaoxi",
+					"query": ""
+				},
+				{
+					"id": 4,
+					"name": "calendar",
+					"pathName": "pages/activity/activity",
+					"query": "id=5aa5593ef3ffd9003a7c1638"
+				}
+			]
+		}
+	}
+}

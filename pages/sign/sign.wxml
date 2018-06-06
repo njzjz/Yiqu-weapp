@@ -1,0 +1,13 @@
+<!--pages/sign/sign.wxml-->
+<!--pages/user/user.wxml-->
+<view class="container">
+  <view class="form-wrap">
+    <view class="flex-wrap input-wrap">
+      <text class="label">邮箱</text>
+      <input value="{{user.email}}" bindinput="update" id="email" data-name="email" class="account-info-input" />
+    </view>
+  </view>
+  <text wx:if="{{error}}" class="error">{{error}}</text>
+  <button class="submit" type="primary" disabled="{{!email||!isEmail}}" bindtap="save">确定</button>
+  <text class="hint">请输入学校邮箱，需以ecnu.edu.cn或sjtu.edu.cn结尾。\n华东师范大学学生邮箱格式一般为：学号@stu.ecnu.edu.cn，提交后请前往学校官网主页，在右下角登陆邮箱。</text>
+</view>

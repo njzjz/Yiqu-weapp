@@ -1,0 +1,5 @@
+/* pages/guangchang/guangchang.wxss */
+.center{
+  display: flex;
+  justify-content: center;
+}

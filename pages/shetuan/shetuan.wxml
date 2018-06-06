@@ -1,0 +1,22 @@
+<!--pages/shetuan/shetuan.wxml-->
+<view class="todo-list">
+  <block wx:for="{{todos}}" wx:for-item="todo" wx:key="objectId">
+    <navigator url="../activity/activity?id={{todo.objectId}}">
+      <view class="flex-wrap todo">
+        <view style="margin-top:50rpx;">
+          <image style="width:120rpx;height:120rpx;" src="{{todo.logo}}" />
+        </view>
+        <view style="vertical-align:top;margin-left:5px;">
+          <text data-id="{{todo.objectId}}" class="todo-text tappable">
+      社团：{{todo.club}}
+      内容：{{todo.name}}
+      </text>
+        </view>
+        <view style="position: fixed;right:20px;">
+          <image style="width:120rpx;height:50rpx;" wx:if="{{todo.school==1}}" src="http://finding-1251553053.cossh.myqcloud.com/shetuan/ecnu.png" />
+          <image style="width:120rpx;height:50rpx;" wx:elif="{{todo.school==2}}" src="http://finding-1251553053.cossh.myqcloud.com/shetuan/sjtu.png" />
+        </view>
+      </view>
+    </navigator>
+  </block>
+</view>

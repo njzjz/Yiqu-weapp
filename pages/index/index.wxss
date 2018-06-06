@@ -1,0 +1,34 @@
+/**index.wxss**/
+.userinfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.userinfo-avatar {
+  width: 128rpx;
+  height: 128rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+}
+
+.userinfo-nickname {
+  color: #aaa;
+}
+
+.usermotto {
+  margin-top: 200px;
+}
+  .navigator {
+  background: white;
+  border-bottom: 1px solid #eee;
+  padding: 0 12px;
+  height: 68px;
+  line-height: 68px;
+  text-align: center;
+  background-image:url('http://finding-1251553053.cossh.myqcloud.com/geren/jiantou.png');
+  background-repeat:no-repeat;
+  background-position: 95% 50%;
+  background-size: 50rpx 50rpx;
+  font-size:16px;
+}

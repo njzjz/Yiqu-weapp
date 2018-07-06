@@ -3,6 +3,10 @@
 
 A social platforms on Wechat for students in East China Normal University and Shanghai Jiao Tong University.
 
+**Author**: Jinzhe Zeng
+
+**Email**: njzjz@qq.com 10154601140@stu.ecnu.edu.cn
+
 ## Usage
 Use Wechat to scan the Mini Program Code:
 

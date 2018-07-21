@@ -15,5 +15,8 @@ Use Wechat to scan the Mini Program Code:
 ## Packages used
 * [LeanCloud JavaScript SDK](https://releases.leanapp.cn/#/leancloud/javascript-sdk/releases)
 
+## Awards
+* 华东师范大学第二十六届“大夏杯”大学生课外学术科技作品竞赛二等奖
+
 ## Fund
 * 2018年度国家大学生创新创业训练计划项目

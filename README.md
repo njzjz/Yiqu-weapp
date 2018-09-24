@@ -1,7 +1,7 @@
 # YiQu WeChat Mini Program
 ![Chinese version](https://jaywcjlove.github.io/sb/lang/chinese.svg)
 
-A social platforms on WeChat for students in East China Normal University and Shanghai Jiao Tong University.
+A social platform on WeChat for students in East China Normal University and Shanghai Jiao Tong University.
 
 **Author**: Jinzhe Zeng
 

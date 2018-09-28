@@ -5,7 +5,7 @@ A social platform on WeChat for students in East China Normal University and Sha
 
 **Author**: Jinzhe Zeng
 
-**Email**: njzjz@qq.com 10154601140@stu.ecnu.edu.cn
+**Email**: jzzeng@stu.ecnu.edu.cn
 
 ## Usage
 Use WeChat to scan the Mini Program Code:
@@ -16,7 +16,7 @@ Use WeChat to scan the Mini Program Code:
 * [LeanCloud JavaScript SDK](https://releases.leanapp.cn/#/leancloud/javascript-sdk/releases)
 
 ## Awards
-* 华东师范大学第二十六届“大夏杯”大学生课外学术科技作品竞赛二等奖
+* The Second Prize in ECNU 26th Da-Xia Cup Extracurricular Academic and Scientific Works Competition (华东师范大学第二十六届“大夏杯”大学生课外学术科技作品竞赛二等奖)
 
 ## Fund
 * 2018年度国家大学生创新创业训练计划项目
